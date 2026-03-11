@@ -38,19 +38,26 @@ const CoursesSection = () => {
         <div className="w-full border-b border-gray-100 mb-8 sm:mb-10 md:mb-16">
 
           {/* Mobile: scrollable single row */}
-          <div className="flex sm:hidden overflow-x-auto no-scrollbar gap-x-5 px-1 pb-1">
+          <div className="flex sm:hidden overflow-x-auto scrollbar-hide gap-x-1 px-2 pb-1 border-b border-gray-100">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveTab(cat)}
-                className={`text-[13px] font-bold pb-3 relative transition-all duration-300 whitespace-nowrap flex-shrink-0 ${
-                  activeTab === cat ? "text-[#00a79d]" : "text-gray-400 hover:text-gray-700"
-                }`}
+                className={`
+                  text-[12px] font-semibold py-2 px-3 relative transition-all duration-300 
+                  whitespace-nowrap flex-shrink-0 rounded-full
+                  ${activeTab === cat 
+                    ? "text-[#00a79d] bg-[#00a79d]/10" 
+                    : "text-gray-400 hover:text-gray-600 hover:bg-gray-100"
+                  }
+                `}
               >
                 {cat}
-                <div className={`absolute bottom-[-1px] left-0 h-[2px] bg-[#00a79d] rounded-t-full transition-all duration-300 ${
-                  activeTab === cat ? "w-full opacity-100" : "w-0 opacity-0"
-                }`} />
+                <div className={`
+                  absolute bottom-[-9px] left-0 h-[2px] bg-[#00a79d] 
+                  rounded-t-full transition-all duration-300
+                  ${activeTab === cat ? "w-full opacity-100" : "w-0 opacity-0"}
+                `} />
               </button>
             ))}
           </div>
